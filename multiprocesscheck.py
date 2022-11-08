@@ -112,17 +112,19 @@ def main(x):
     d = d[[ 'year', 'month', 'day', 'category_id', 'company', 'date_created','location_raw', 'salary_max', 'salary_min', 'salary_predicted',
 'salary_currency', 'job_title', 'job_sector', 'location_path', 'contract_time',
 'contract_type', 'company_id', 'company_name', 'job_description', 'experience']]
+    try:
+        df1=myCoder.codedataframe(d)
+        
+        df2 = df1[[ 'year', 'month', 'day', 'category_id', 'company', 'date_created','location_raw', 'salary_max', 'salary_min', 'salary_predicted',
+      'salary_currency', 'job_title', 'job_sector', 'location_path', 'contract_time',
+      'contract_type', 'company_id', 'company_name', 'SOC_code', 'experience']]
 
-         
-    df1=myCoder.codedataframe(d)
-            #print('socdone')
-    df2 = df1[[ 'year', 'month', 'day', 'category_id', 'company', 'date_created','location_raw', 'salary_max', 'salary_min', 'salary_predicted',
-   'salary_currency', 'job_title', 'job_sector', 'location_path', 'contract_time',
-   'contract_type', 'company_id', 'company_name', 'SOC_code', 'experience']]
-
-
-                    #df2=df2.append(df1)
-                    #df2.to_csv(os.path.join(dir1, 'vacancy_stock_raw.csv'))
+     except: 
+        
+        print('failtocode')
+        df2=d         
+        pass
+ 
                  
     end = timeit.timeit()
     print( end - start)
