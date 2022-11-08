@@ -92,6 +92,7 @@ def main(x):
     d=d.astype(str)
                 
     d['experience']=0
+    
                 
                 
                 # substring to be searched
@@ -112,6 +113,10 @@ def main(x):
     d = d[[ 'year', 'month', 'day', 'category_id', 'company', 'date_created','location_raw', 'salary_max', 'salary_min', 'salary_predicted',
 'salary_currency', 'job_title', 'job_sector', 'location_path', 'contract_time',
 'contract_type', 'company_id', 'company_name', 'job_description', 'experience']]
+    d1 = d[[ 'year', 'month', 'day', 'category_id', 'company', 'date_created','location_raw', 'salary_max', 'salary_min', 'salary_predicted',
+'salary_currency', 'job_title', 'job_sector', 'location_path', 'contract_time',
+'contract_type', 'company_id', 'company_name',  'experience']]
+    d1['SOC_code']=0
     try:
         df1=myCoder.codedataframe(d)
         
@@ -122,7 +127,7 @@ def main(x):
      except: 
         
         print('failtocode')
-        df2=d         
+        df2=d1         
         pass
  
                  
